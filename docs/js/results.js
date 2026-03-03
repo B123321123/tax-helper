@@ -131,6 +131,7 @@ const Results = {
 
         html += `<div class="btn-row">
             <button class="btn btn-secondary" data-action="restart">Neue Berechnung</button>
+            <button class="btn btn-primary" id="pdf-download-btn">📄 PDF herunterladen</button>
         </div>`;
 
         container.innerHTML = html;
@@ -147,6 +148,14 @@ const Results = {
                 });
             });
         });
+
+        // PDF download button
+        const pdfBtn = document.getElementById("pdf-download-btn");
+        if (pdfBtn && typeof PdfExport !== "undefined") {
+            pdfBtn.addEventListener("click", () => {
+                PdfExport.generate(payload, result, elsterMap);
+            });
+        }
     },
 
     renderElsterTable(payload, elsterMap) {
