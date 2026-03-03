@@ -1,6 +1,6 @@
 const Results = {
     fmt(val) {
-        return new Intl.NumberFormat("de-DE", {style: "currency", currency: "EUR"}).format(val);
+        return new Intl.NumberFormat("de-DE", { style: "currency", currency: "EUR" }).format(val);
     },
 
     badge(fieldName, elsterMap) {
@@ -19,7 +19,7 @@ const Results = {
         </div>`;
     },
 
-    render(result, elsterMap) {
+    render(result, elsterMap, payload) {
         const s = result.summary;
         const st = result.steps;
         const container = document.getElementById("step-results");
@@ -124,10 +124,119 @@ const Results = {
             html += `</div>`;
         }
 
+        // ELSTER Copy Table
+        if (payload) {
+            html += this.renderElsterTable(payload, elsterMap);
+        }
+
         html += `<div class="btn-row">
             <button class="btn btn-secondary" data-action="restart">Neue Berechnung</button>
         </div>`;
 
         container.innerHTML = html;
+
+        // Attach copy button handlers
+        container.querySelectorAll(".elster-copy-btn").forEach(btn => {
+            btn.addEventListener("click", () => {
+                const val = btn.getAttribute("data-value");
+                navigator.clipboard.writeText(val).then(() => {
+                    const orig = btn.textContent;
+                    btn.textContent = "✓";
+                    btn.classList.add("copied");
+                    setTimeout(() => { btn.textContent = orig; btn.classList.remove("copied"); }, 1200);
+                });
+            });
+        });
+    },
+
+    renderElsterTable(payload, elsterMap) {
+        // Collect all fields with their values from the payload
+        const fields = [];
+        const add = (key, value) => {
+            const entry = elsterMap[key];
+            if (!entry || value === undefined || value === null || value === 0 || value === "") return;
+            fields.push({ key, form: entry.form, line: entry.line, hint: entry.hint || key, value: typeof value === "number" ? value.toFixed(2).replace(".", ",") : String(value) });
+        };
+
+        // Employment
+        const emp = payload.employment || {};
+        add("bruttolohn", emp.bruttolohn);
+        add("lohnsteuer_einbehalten", emp.lohnsteuer_einbehalten);
+        if (emp.soli_einbehalten) add("soli_einbehalten", emp.soli_einbehalten);
+        if (emp.kist_einbehalten) add("kist_einbehalten", emp.kist_einbehalten);
+
+        // Capital
+        const cap = payload.capital || {};
+        add("dividends", cap.dividends);
+        add("interest", cap.interest);
+        add("realized_gains", cap.realized_gains);
+        add("already_withheld_kest", cap.already_withheld_kest);
+        add("fund_distributions", cap.fund_distributions);
+        add("vorabpauschale", cap.vorabpauschale);
+        add("fund_sale_gains", cap.fund_sale_gains);
+
+        // Freelance
+        const frl = payload.freelance || {};
+        add("einnahmen_selbst", frl.einnahmen);
+        add("betriebsausgaben", frl.betriebsausgaben);
+
+        // Rental
+        const rent = payload.rental || {};
+        add("mieteinnahmen", rent.mieteinnahmen);
+        add("schuldzinsen", rent.schuldzinsen);
+        add("afa", rent.afa);
+        add("grundsteuer", rent.grundsteuer);
+
+        // Vorsorge
+        const ded = payload.deductions || {};
+        add("grv_beitraege", ded.grv_beitraege);
+        add("ruerup_beitraege", ded.ruerup_beitraege);
+        add("kv_basis", ded.kv_basis);
+        add("pv_beitraege", ded.pv_beitraege);
+        add("sonstige_vorsorge", ded.sonstige_vorsorge);
+
+        // Sonderausgaben
+        add("kirchensteuer_paid", ded.kirchensteuer_paid);
+        add("spenden", ded.spenden);
+        add("handwerkerleistungen", ded.handwerkerleistungen);
+        add("haushaltsnahe_dl", ded.haushaltsnahe_dl);
+
+        // Children
+        const kids = payload.children || {};
+        add("num_children", kids.num_children);
+
+        if (fields.length === 0) return "";
+
+        // Group by form
+        const groups = {};
+        fields.forEach(f => {
+            if (!groups[f.form]) groups[f.form] = [];
+            groups[f.form].push(f);
+        });
+
+        let html = `
+        <div class="result-card elster-guide">
+            <h3>📋 ELSTER-Ausfüllhilfe</h3>
+            <p class="elster-guide-desc">Übertragen Sie diese Werte in Ihr ELSTER-Formular. Klicken Sie auf <strong>Kopieren</strong>, um den Wert in die Zwischenablage zu kopieren.</p>`;
+
+        for (const [form, entries] of Object.entries(groups)) {
+            html += `<div class="elster-form-group">
+                <div class="elster-form-header">${form}</div>
+                <table class="elster-table">
+                    <thead><tr><th>Zeile</th><th>Beschreibung</th><th>Wert</th><th></th></tr></thead>
+                    <tbody>`;
+            entries.forEach(e => {
+                html += `<tr>
+                    <td class="elster-line">Z. ${e.line}</td>
+                    <td class="elster-desc">${e.hint}</td>
+                    <td class="elster-val">${e.value}</td>
+                    <td><button class="elster-copy-btn" data-value="${e.value}" title="Wert kopieren">Kopieren</button></td>
+                </tr>`;
+            });
+            html += `</tbody></table></div>`;
+        }
+
+        html += `</div>`;
+        return html;
     },
 };

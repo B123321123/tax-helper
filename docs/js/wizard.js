@@ -1,31 +1,31 @@
 const ELSTER_MAP = {
-    bruttolohn: {form:"Anlage N",line:"6",hint:"Lohnsteuerbescheinigung Nr. 3"},
-    lohnsteuer_einbehalten: {form:"Anlage N",line:"11"},
-    entfernungspauschale: {form:"Anlage N",line:"31-39"},
-    homeoffice_pauschale: {form:"Anlage N",line:"45"},
-    other_wk: {form:"Anlage N",line:"46-48"},
-    dividends: {form:"Anlage KAP",line:"7"},
-    interest: {form:"Anlage KAP",line:"7"},
-    realized_gains: {form:"Anlage KAP",line:"7"},
-    already_withheld_kest: {form:"Anlage KAP",line:"37"},
-    sparerpauschbetrag: {form:"Anlage KAP",line:"16"},
-    fund_distributions: {form:"Anlage KAP-INV",line:"4-8"},
-    vorabpauschale: {form:"Anlage KAP-INV",line:"9-13"},
-    fund_sale_gains: {form:"Anlage KAP-INV",line:"14-18"},
-    einnahmen_selbst: {form:"Anlage S",line:"4"},
-    betriebsausgaben: {form:"Anlage EÜR",line:"div."},
-    mieteinnahmen: {form:"Anlage V",line:"9"},
-    schuldzinsen: {form:"Anlage V",line:"37"},
-    afa: {form:"Anlage V",line:"33"},
-    grundsteuer: {form:"Anlage V",line:"47"},
-    grv_beitraege: {form:"Anlage Vorsorgeaufwand",line:"4"},
-    kv_basis: {form:"Anlage Vorsorgeaufwand",line:"11-16"},
-    pv_beitraege: {form:"Anlage Vorsorgeaufwand",line:"17-22"},
-    sonstige_vorsorge: {form:"Anlage Vorsorgeaufwand",line:"45-50"},
-    kirchensteuer_paid: {form:"ESt 1 A",line:"4"},
-    spenden: {form:"ESt 1 A",line:"5"},
-    handwerkerleistungen: {form:"ESt 1 A",line:"6"},
-    num_children: {form:"Anlage Kind",line:"6"},
+    bruttolohn: { form: "Anlage N", line: "6", hint: "Lohnsteuerbescheinigung Nr. 3" },
+    lohnsteuer_einbehalten: { form: "Anlage N", line: "11" },
+    entfernungspauschale: { form: "Anlage N", line: "31-39" },
+    homeoffice_pauschale: { form: "Anlage N", line: "45" },
+    other_wk: { form: "Anlage N", line: "46-48" },
+    dividends: { form: "Anlage KAP", line: "7" },
+    interest: { form: "Anlage KAP", line: "7" },
+    realized_gains: { form: "Anlage KAP", line: "7" },
+    already_withheld_kest: { form: "Anlage KAP", line: "37" },
+    sparerpauschbetrag: { form: "Anlage KAP", line: "16" },
+    fund_distributions: { form: "Anlage KAP-INV", line: "4-8" },
+    vorabpauschale: { form: "Anlage KAP-INV", line: "9-13" },
+    fund_sale_gains: { form: "Anlage KAP-INV", line: "14-18" },
+    einnahmen_selbst: { form: "Anlage S", line: "4" },
+    betriebsausgaben: { form: "Anlage EÜR", line: "div." },
+    mieteinnahmen: { form: "Anlage V", line: "9" },
+    schuldzinsen: { form: "Anlage V", line: "37" },
+    afa: { form: "Anlage V", line: "33" },
+    grundsteuer: { form: "Anlage V", line: "47" },
+    grv_beitraege: { form: "Anlage Vorsorgeaufwand", line: "4" },
+    kv_basis: { form: "Anlage Vorsorgeaufwand", line: "11-16" },
+    pv_beitraege: { form: "Anlage Vorsorgeaufwand", line: "17-22" },
+    sonstige_vorsorge: { form: "Anlage Vorsorgeaufwand", line: "45-50" },
+    kirchensteuer_paid: { form: "ESt 1 A", line: "4" },
+    spenden: { form: "ESt 1 A", line: "5" },
+    handwerkerleistungen: { form: "ESt 1 A", line: "6" },
+    num_children: { form: "Anlage Kind", line: "6" },
 };
 
 const Wizard = {
@@ -57,7 +57,7 @@ const Wizard = {
             if (i === index) s.classList.add("active");
         });
         this.currentStep = index;
-        window.scrollTo({top: 0, behavior: "smooth"});
+        window.scrollTo({ top: 0, behavior: "smooth" });
     },
 
     next() {
@@ -146,7 +146,7 @@ const Wizard = {
         try {
             const payload = this.collectPayload();
             const result = calculateFullTax(payload);
-            Results.render(result, ELSTER_MAP);
+            Results.render(result, ELSTER_MAP, payload);
         } catch (err) {
             resultsStep.innerHTML = `<div class="result-card"><h3>Fehler</h3><p>${err.message}</p></div>`;
         }

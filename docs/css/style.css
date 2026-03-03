@@ -253,6 +253,104 @@ header p {
     background: var(--bg);
 }
 
+/* ELSTER Copy Table */
+.elster-guide-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    line-height: 1.5;
+}
+
+.elster-form-group {
+    margin-bottom: 16px;
+}
+
+.elster-form-header {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+    background: rgba(26, 86, 219, 0.06);
+    padding: 6px 12px;
+    border-radius: 6px 6px 0 0;
+    border: 1px solid rgba(26, 86, 219, 0.15);
+    border-bottom: none;
+}
+
+.elster-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.84rem;
+    border: 1px solid var(--border);
+    border-radius: 0 0 6px 6px;
+    overflow: hidden;
+}
+
+.elster-table thead th {
+    text-align: left;
+    padding: 6px 10px;
+    background: var(--bg);
+    font-weight: 600;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid var(--border);
+}
+
+.elster-table tbody td {
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+}
+
+.elster-table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.elster-table tbody tr:hover {
+    background: rgba(26, 86, 219, 0.03);
+}
+
+.elster-line {
+    white-space: nowrap;
+    font-weight: 500;
+    color: var(--primary);
+    width: 60px;
+}
+
+.elster-val {
+    font-variant-numeric: tabular-nums;
+    font-weight: 600;
+    white-space: nowrap;
+    text-align: right;
+    width: 100px;
+}
+
+.elster-copy-btn {
+    padding: 3px 10px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #fff;
+    color: var(--text-muted);
+    cursor: pointer;
+    transition: all 0.15s;
+    white-space: nowrap;
+}
+
+.elster-copy-btn:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    background: rgba(26, 86, 219, 0.05);
+}
+
+.elster-copy-btn.copied {
+    border-color: var(--success);
+    color: var(--success);
+    background: rgba(22, 163, 74, 0.08);
+}
+
 /* Results */
 .result-card {
     background: var(--card);
