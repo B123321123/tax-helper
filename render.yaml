@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: steuerhelfer-2025
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:create_app()
+    plan: free
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
