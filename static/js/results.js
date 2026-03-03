@@ -36,24 +36,24 @@ const Results = {
         </div>`;
 
         // Income breakdown
-        html += `<div class="result-card"><h3>Einkuenfte</h3>`;
+        html += `<div class="result-card"><h3>Einkünfte</h3>`;
         if (st.einkuenfte.employment !== undefined)
-            html += this.row("Einkuenfte aus nichtselbstaendiger Arbeit (§19)", st.einkuenfte.employment, "bruttolohn", elsterMap);
+            html += this.row("Einkünfte aus nichtselbständiger Arbeit (§19)", st.einkuenfte.employment, "bruttolohn", elsterMap);
         if (st.einkuenfte.freelance !== undefined)
-            html += this.row("Einkuenfte aus selbstaendiger Arbeit / Gewerbe", st.einkuenfte.freelance, "einnahmen_selbst", elsterMap);
+            html += this.row("Einkünfte aus selbständiger Arbeit / Gewerbe", st.einkuenfte.freelance, "einnahmen_selbst", elsterMap);
         if (st.einkuenfte.rental !== undefined)
-            html += this.row("Einkuenfte aus Vermietung und Verpachtung (§21)", st.einkuenfte.rental, "mieteinnahmen", elsterMap);
-        html += this.row("Summe der Einkuenfte", s.sde, null, elsterMap, "total");
+            html += this.row("Einkünfte aus Vermietung und Verpachtung (§21)", st.einkuenfte.rental, "mieteinnahmen", elsterMap);
+        html += this.row("Summe der Einkünfte", s.sde, null, elsterMap, "total");
         if (s.altersentlastung > 0)
             html += this.row("Altersentlastungsbetrag (§24a)", -s.altersentlastung, null, elsterMap);
-        html += this.row("Gesamtbetrag der Einkuenfte", s.gde, null, elsterMap);
+        html += this.row("Gesamtbetrag der Einkünfte", s.gde, null, elsterMap);
         html += `</div>`;
 
         // Deductions
-        html += `<div class="result-card"><h3>Abzuege</h3>`;
+        html += `<div class="result-card"><h3>Abzüge</h3>`;
         html += this.row("Sonderausgaben (§10 EStG)", -s.sonderausgaben, null, elsterMap);
         if (s.agb_deductible > 0)
-            html += this.row("Aussergewoehnliche Belastungen (§33)", -s.agb_deductible, null, elsterMap);
+            html += this.row("Außergewöhnliche Belastungen (§33)", -s.agb_deductible, null, elsterMap);
         html += this.row("Zu versteuerndes Einkommen", s.zve, null, elsterMap, "total");
         html += `</div>`;
 
@@ -63,7 +63,7 @@ const Results = {
             html += this.row("Kinderfreibetrag gesamt", st.kinderfreibetrag.kfb_total, "num_children", elsterMap);
             html += this.row("ESt-Ersparnis durch KFB", st.kinderfreibetrag.est_saving, null, elsterMap);
             html += this.row("Kindergeld erhalten", st.kinderfreibetrag.kindergeld_total, null, elsterMap);
-            const method = st.kinderfreibetrag.use_kfb ? "Kinderfreibetrag (guenstiger)" : "Kindergeld (guenstiger)";
+            const method = st.kinderfreibetrag.use_kfb ? "Kinderfreibetrag (günstiger)" : "Kindergeld (günstiger)";
             html += `<div class="result-row"><span class="label">Ergebnis</span><span class="value">${method}</span></div>`;
             html += `</div>`;
         }
@@ -74,17 +74,17 @@ const Results = {
         if (s.gewst_anrechnung_35 > 0)
             html += this.row("GewSt-Anrechnung (§35)", -s.gewst_anrechnung_35, null, elsterMap);
         if (s.credits_35a > 0)
-            html += this.row("Steuermaessigung (§35a)", -s.credits_35a, null, elsterMap);
+            html += this.row("Steuermäßigung (§35a)", -s.credits_35a, null, elsterMap);
         html += this.row("Einkommensteuer (festgesetzt)", s.einkommensteuer_final, null, elsterMap);
-        html += this.row("Solidaritaetszuschlag", s.solidaritaetszuschlag, null, elsterMap);
+        html += this.row("Solidaritätszuschlag", s.solidaritätszuschlag, null, elsterMap);
         if (s.kirchensteuer > 0)
             html += this.row("Kirchensteuer", s.kirchensteuer, "kirchensteuer_paid", elsterMap);
         if (s.gewerbesteuer > 0)
             html += this.row("Gewerbesteuer", s.gewerbesteuer, null, elsterMap);
         if (s.abgeltungsteuer > 0) {
             html += this.row("Abgeltungsteuer (Kapital)", s.abgeltungsteuer, null, elsterMap);
-            if (s.guenstigerpruefung)
-                html += `<div class="result-row"><span class="label"><em>Guenstigerpruefung angewendet — Kapitalertraege zum Normaltarif versteuert</em></span></div>`;
+            if (s.günstigerpruefung)
+                html += `<div class="result-row"><span class="label"><em>Günstigerprüfung angewendet — Kapitalerträge zum Normaltarif versteuert</em></span></div>`;
         }
         html += this.row("Gesamte Steuerbelastung", s.total_tax, null, elsterMap, "total");
         html += `</div>`;
@@ -93,7 +93,7 @@ const Results = {
         html += `<div class="result-card"><h3>Vorauszahlungen / Einbehaltene Steuern</h3>`;
         html += this.row("Bereits einbehaltene Steuern", -s.total_withheld, null, elsterMap);
         if (s.kindergeld_offset > 0)
-            html += this.row("Kindergeld-Verrechnung (KFB gewaehlt)", s.kindergeld_offset, null, elsterMap);
+            html += this.row("Kindergeld-Verrechnung (KFB gewählt)", s.kindergeld_offset, null, elsterMap);
         html += this.row(isRefund ? "Erstattung" : "Nachzahlung", nachzahlung, null, elsterMap, "total");
         html += `</div>`;
 
@@ -108,7 +108,7 @@ const Results = {
             html += this.row("Pauschbetrag", wk.pauschbetrag, null, elsterMap);
             html += this.row("Angesetzt", wk.effective, null, elsterMap, "total");
             if (wk.used_pauschbetrag)
-                html += `<div class="result-row"><span class="label"><em>Arbeitnehmer-Pauschbetrag angewendet (hoeher als Einzelnachweis)</em></span></div>`;
+                html += `<div class="result-row"><span class="label"><em>Arbeitnehmer-Pauschbetrag angewendet (höher als Einzelnachweis)</em></span></div>`;
             html += `</div>`;
         }
 
@@ -116,10 +116,10 @@ const Results = {
         if (st.vorsorge) {
             const v = st.vorsorge;
             html += `<div class="result-card"><h3>Vorsorgeaufwendungen Detail (§10)</h3>`;
-            html += this.row("Altersvorsorge (abzugsfaehig)", v.altersvorsorge_deductible, "grv_beitraege", elsterMap);
-            html += this.row("Basis-KV (abzugsfaehig)", v.kv_basis_deductible, "kv_basis", elsterMap);
+            html += this.row("Altersvorsorge (abzugsfähig)", v.altersvorsorge_deductible, "grv_beitraege", elsterMap);
+            html += this.row("Basis-KV (abzugsfähig)", v.kv_basis_deductible, "kv_basis", elsterMap);
             html += this.row("Pflegeversicherung", v.pv_deductible, "pv_beitraege", elsterMap);
-            html += this.row("Sonstige Vorsorge (abzugsfaehig)", v.sonstige_deductible, "sonstige_vorsorge", elsterMap);
+            html += this.row("Sonstige Vorsorge (abzugsfähig)", v.sonstige_deductible, "sonstige_vorsorge", elsterMap);
             html += this.row("Vorsorge gesamt", v.total, null, elsterMap, "total");
             html += `</div>`;
         }

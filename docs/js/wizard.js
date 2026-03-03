@@ -13,7 +13,7 @@ const ELSTER_MAP = {
     vorabpauschale: {form:"Anlage KAP-INV",line:"9-13"},
     fund_sale_gains: {form:"Anlage KAP-INV",line:"14-18"},
     einnahmen_selbst: {form:"Anlage S",line:"4"},
-    betriebsausgaben: {form:"Anlage EUeR",line:"div."},
+    betriebsausgaben: {form:"Anlage EÜR",line:"div."},
     mieteinnahmen: {form:"Anlage V",line:"9"},
     schuldzinsen: {form:"Anlage V",line:"37"},
     afa: {form:"Anlage V",line:"33"},
@@ -135,7 +135,7 @@ const Wizard = {
                 sonstige_vorsorge: val("sonstige_vorsorge"), is_gkv: val("is_gkv", true),
                 kirchensteuer_paid: val("kirchensteuer_paid"), spenden: val("spenden"),
                 handwerkerleistungen: val("handwerkerleistungen"), haushaltsnahe_dl: val("haushaltsnahe_dl"),
-                aussergewoehnliche_belastungen: val("agb"),
+                außergewöhnliche_belastungen: val("agb"),
             },
         };
     },

@@ -28,8 +28,8 @@
     <!-- STEP 1: Profil -->
     <!-- ============================================================ -->
     <div class="step active" id="step-profil">
-        <h2>Persoenliche Angaben</h2>
-        <p class="step-desc">Grunddaten fuer Ihre Steuererklaerung</p>
+        <h2>Persönliche Angaben</h2>
+        <p class="step-desc">Grunddaten für Ihre Steuererklärung</p>
 
         <div class="field-row">
             <div class="field-group">
@@ -42,7 +42,7 @@
             <div class="field-group">
                 <label for="bundesland">Bundesland</label>
                 <select id="bundesland">
-                    <option value="Baden-Wuerttemberg">Baden-Wuerttemberg</option>
+                    <option value="Baden-Wuerttemberg">Baden-Württemberg</option>
                     <option value="Bayern">Bayern</option>
                     <option value="Berlin" selected>Berlin</option>
                     <option value="Brandenburg">Brandenburg</option>
@@ -57,7 +57,7 @@
                     <option value="Sachsen">Sachsen</option>
                     <option value="Sachsen-Anhalt">Sachsen-Anhalt</option>
                     <option value="Schleswig-Holstein">Schleswig-Holstein</option>
-                    <option value="Thueringen">Thueringen</option>
+                    <option value="Thueringen">Thüringen</option>
                 </select>
             </div>
         </div>
@@ -66,7 +66,7 @@
             <div class="field-group">
                 <label for="birth_year">Geburtsjahr</label>
                 <input type="number" id="birth_year" value="1990" min="1930" max="2010">
-                <span class="hint">Fuer Altersentlastungsbetrag (§24a EStG)</span>
+                <span class="hint">Für Altersentlastungsbetrag (§24a EStG)</span>
             </div>
             <div class="field-group">
                 <label for="church_member">Kirchensteuerpflichtig?</label>
@@ -78,11 +78,11 @@
         </div>
 
         <div class="field-group" style="margin-top:16px;">
-            <label>Einkommensarten waehlen</label>
+            <label>Einkommensarten wählen</label>
             <div class="checkbox-group">
-                <label><input type="checkbox" data-category-toggle value="employment" checked><span>Nichtselbstaendige Arbeit (Anlage N)</span></label>
-                <label><input type="checkbox" data-category-toggle value="capital"><span>Kapitalertraege (Anlage KAP / KAP-INV)</span></label>
-                <label><input type="checkbox" data-category-toggle value="freelance"><span>Selbstaendige / Gewerbliche Taetigkeit (Anlage S / G)</span></label>
+                <label><input type="checkbox" data-category-toggle value="employment" checked><span>Nichtselbständige Arbeit (Anlage N)</span></label>
+                <label><input type="checkbox" data-category-toggle value="capital"><span>Kapitalerträge (Anlage KAP / KAP-INV)</span></label>
+                <label><input type="checkbox" data-category-toggle value="freelance"><span>Selbständige / Gewerbliche Tätigkeit (Anlage S / G)</span></label>
                 <label><input type="checkbox" data-category-toggle value="rental"><span>Vermietung und Verpachtung (Anlage V)</span></label>
             </div>
         </div>
@@ -97,7 +97,7 @@
     <!-- STEP 2: Employment (Anlage N) -->
     <!-- ============================================================ -->
     <div class="step" data-conditional="employment" id="step-employment">
-        <h2>Einkuenfte aus nichtselbstaendiger Arbeit</h2>
+        <h2>Einkünfte aus nichtselbständiger Arbeit</h2>
         <p class="step-desc">Angaben aus Ihrer Lohnsteuerbescheinigung (Anlage N)</p>
 
         <div class="field-group">
@@ -149,9 +149,9 @@
         </div>
         <div class="field-row">
             <div class="field-group">
-                <label for="public_transport_annual">Jahresticket OEPNV (EUR)</label>
+                <label for="public_transport_annual">Jahresticket ÖPNV (EUR)</label>
                 <input type="number" id="public_transport_annual" value="0" step="1">
-                <span class="hint">Wird mit Entfernungspauschale verglichen — hoeherer Betrag zaehlt</span>
+                <span class="hint">Wird mit Entfernungspauschale verglichen — höherer Betrag zählt</span>
             </div>
             <div class="field-group">
                 <label for="other_wk">Sonstige Werbungskosten (EUR) <span class="elster-badge">Anlage N Z.46-48</span></label>
@@ -161,7 +161,7 @@
         </div>
 
         <div class="btn-row">
-            <button class="btn btn-secondary" data-action="prev">Zurueck</button>
+            <button class="btn btn-secondary" data-action="prev">Zurück</button>
             <button class="btn btn-primary" data-action="next">Weiter</button>
         </div>
     </div>
@@ -170,10 +170,10 @@
     <!-- STEP 3: Capital (Anlage KAP) -->
     <!-- ============================================================ -->
     <div class="step hidden-step" data-conditional="capital" id="step-capital">
-        <h2>Kapitalertraege</h2>
+        <h2>Kapitalerträge</h2>
         <p class="step-desc">Anlage KAP / KAP-INV — Angaben aus Ihrer Jahressteuerbescheinigung</p>
 
-        <h3 style="font-size:0.9rem; margin-bottom:12px;">Direkte Kapitalertraege</h3>
+        <h3 style="font-size:0.9rem; margin-bottom:12px;">Direkte Kapitalerträge</h3>
         <div class="field-row">
             <div class="field-group">
                 <label for="cap_dividends">Dividenden <span class="elster-badge">Anlage KAP Z.7</span></label>
@@ -185,13 +185,13 @@
             </div>
         </div>
         <div class="field-group">
-            <label for="cap_realized_gains">Veraeusserungsgewinne (Aktien) <span class="elster-badge">Anlage KAP Z.7</span></label>
+            <label for="cap_realized_gains">Veräußerungsgewinne (Aktien) <span class="elster-badge">Anlage KAP Z.7</span></label>
             <input type="number" id="cap_realized_gains" value="0" step="0.01">
         </div>
 
         <h3 style="font-size:0.9rem; margin:20px 0 12px;">Investmentfonds / ETFs (InvStG §§16-20)</h3>
         <div class="field-group">
-            <label for="cap_fund_type">Fondstyp (fuer Teilfreistellung §20 InvStG)</label>
+            <label for="cap_fund_type">Fondstyp (für Teilfreistellung §20 InvStG)</label>
             <select id="cap_fund_type">
                 <option value="aktienfonds">Aktienfonds (30% steuerfrei)</option>
                 <option value="mischfonds">Mischfonds (15% steuerfrei)</option>
@@ -202,11 +202,11 @@
         </div>
         <div class="field-row">
             <div class="field-group">
-                <label for="cap_fund_distributions">Ausschuettungen <span class="elster-badge">KAP-INV Z.4-8</span></label>
+                <label for="cap_fund_distributions">Ausschüttungen <span class="elster-badge">KAP-INV Z.4-8</span></label>
                 <input type="number" id="cap_fund_distributions" value="0" step="0.01">
             </div>
             <div class="field-group">
-                <label for="cap_fund_sale_gains">Veraeusserungsgewinn Fonds <span class="elster-badge">KAP-INV Z.14-18</span></label>
+                <label for="cap_fund_sale_gains">Veräußerungsgewinn Fonds <span class="elster-badge">KAP-INV Z.14-18</span></label>
                 <input type="number" id="cap_fund_sale_gains" value="0" step="0.01">
             </div>
         </div>
@@ -233,7 +233,7 @@
         </div>
 
         <div class="btn-row">
-            <button class="btn btn-secondary" data-action="prev">Zurueck</button>
+            <button class="btn btn-secondary" data-action="prev">Zurück</button>
             <button class="btn btn-primary" data-action="next">Weiter</button>
         </div>
     </div>
@@ -242,16 +242,16 @@
     <!-- STEP 4: Freelance (Anlage S / G) -->
     <!-- ============================================================ -->
     <div class="step hidden-step" data-conditional="freelance" id="step-freelance">
-        <h2>Selbstaendige / Gewerbliche Taetigkeit</h2>
+        <h2>Selbständige / Gewerbliche Tätigkeit</h2>
         <p class="step-desc">Anlage S (Freiberufler) oder Anlage G (Gewerbetreibende)</p>
 
         <div class="field-group">
-            <label>Art der Taetigkeit</label>
+            <label>Art der Tätigkeit</label>
             <div class="radio-toggle">
                 <label><input type="radio" name="freelance_type" id="freelance_type" value="freiberufler" checked><span>Freiberufler (§18 EStG) — keine GewSt</span></label>
                 <label><input type="radio" name="freelance_type" value="gewerblich"><span>Gewerbetreibend (§15 EStG)</span></label>
             </div>
-            <span class="hint">Freiberufler: Aerzte, Anwaelte, Kuenstler, IT-Berater, Journalisten etc.</span>
+            <span class="hint">Freiberufler: Ärzte, Anwälte, Künstler, IT-Berater, Journalisten etc.</span>
         </div>
 
         <div class="field-row">
@@ -260,7 +260,7 @@
                 <input type="number" id="freelance_einnahmen" value="0" step="1">
             </div>
             <div class="field-group">
-                <label for="freelance_ausgaben">Betriebsausgaben <span class="elster-badge">Anlage EUeR</span></label>
+                <label for="freelance_ausgaben">Betriebsausgaben <span class="elster-badge">Anlage EÜR</span></label>
                 <input type="number" id="freelance_ausgaben" value="0" step="1">
             </div>
         </div>
@@ -268,11 +268,11 @@
         <div class="field-group" id="hebesatz-group">
             <label for="freelance_hebesatz">Gewerbesteuer-Hebesatz (%)</label>
             <input type="number" id="freelance_hebesatz" value="400" min="200" max="900" step="1">
-            <span class="hint">Ihrer Gemeinde — Berlin: 410%, Muenchen: 490%, Frankfurt: 460%. Freibetrag: EUR 24.500</span>
+            <span class="hint">Ihrer Gemeinde — Berlin: 410%, München: 490%, Frankfurt: 460%. Freibetrag: EUR 24.500</span>
         </div>
 
         <div class="btn-row">
-            <button class="btn btn-secondary" data-action="prev">Zurueck</button>
+            <button class="btn btn-secondary" data-action="prev">Zurück</button>
             <button class="btn btn-primary" data-action="next">Weiter</button>
         </div>
     </div>
@@ -282,7 +282,7 @@
     <!-- ============================================================ -->
     <div class="step hidden-step" data-conditional="rental" id="step-rental">
         <h2>Vermietung und Verpachtung</h2>
-        <p class="step-desc">Anlage V — Einkuenfte aus Vermietung</p>
+        <p class="step-desc">Anlage V — Einkünfte aus Vermietung</p>
 
         <div class="field-row">
             <div class="field-group">
@@ -302,7 +302,7 @@
                 <input type="number" id="rental_schuldzinsen" value="0" step="1">
             </div>
             <div class="field-group">
-                <label for="rental_afa">Gebaeude-AfA <span class="elster-badge">Anlage V Z.33</span></label>
+                <label for="rental_afa">Gebäude-AfA <span class="elster-badge">Anlage V Z.33</span></label>
                 <input type="number" id="rental_afa" value="0" step="1">
                 <span class="hint">2% (vor 2023), 3% (ab 2023), 2.5% (vor 1925)</span>
             </div>
@@ -319,7 +319,7 @@
         </div>
 
         <div class="btn-row">
-            <button class="btn btn-secondary" data-action="prev">Zurueck</button>
+            <button class="btn btn-secondary" data-action="prev">Zurück</button>
             <button class="btn btn-primary" data-action="next">Weiter</button>
         </div>
     </div>
@@ -344,12 +344,12 @@
         </div>
 
         <p style="font-size:0.82rem; color:var(--text-muted); margin-top:8px;">
-            Das Finanzamt prueft automatisch, ob der Kinderfreibetrag (EUR 9.600/Kind) oder das Kindergeld guenstiger ist.
-            Fuer Soli und KiSt wird der Kinderfreibetrag immer beruecksichtigt (Massstabsteuer §51a EStG).
+            Das Finanzamt prüft automatisch, ob der Kinderfreibetrag (EUR 9.600/Kind) oder das Kindergeld günstiger ist.
+            Für Soli und KiSt wird der Kinderfreibetrag immer berücksichtigt (Massstabsteuer §51a EStG).
         </p>
 
         <div class="btn-row">
-            <button class="btn btn-secondary" data-action="prev">Zurueck</button>
+            <button class="btn btn-secondary" data-action="prev">Zurück</button>
             <button class="btn btn-primary" data-action="next">Weiter</button>
         </div>
     </div>
@@ -358,18 +358,18 @@
     <!-- STEP 7: Deductions -->
     <!-- ============================================================ -->
     <div class="step" id="step-deductions">
-        <h2>Sonderausgaben und Abzuege</h2>
-        <p class="step-desc">Vorsorgeaufwendungen (§10 EStG), Spenden, Steuermaessigungen (§35a)</p>
+        <h2>Sonderausgaben und Abzüge</h2>
+        <p class="step-desc">Vorsorgeaufwendungen (§10 EStG), Spenden, Steuermäßigungen (§35a)</p>
 
         <h3 style="font-size:0.9rem; margin-bottom:12px;">Vorsorgeaufwendungen (Anlage Vorsorgeaufwand)</h3>
         <div class="field-row">
             <div class="field-group">
-                <label for="grv_beitraege">GRV-Beitraege (AN-Anteil) <span class="elster-badge">Vorsorge Z.4</span></label>
+                <label for="grv_beitraege">GRV-Beiträge (AN-Anteil) <span class="elster-badge">Vorsorge Z.4</span></label>
                 <input type="number" id="grv_beitraege" value="0" step="1">
                 <span class="hint">Lohnsteuerbescheinigung Nr. 23a</span>
             </div>
             <div class="field-group">
-                <label for="ruerup_beitraege">Ruerup-/Basisrente <span class="elster-badge">Vorsorge Z.8</span></label>
+                <label for="ruerup_beitraege">Rürup-/Basisrente <span class="elster-badge">Vorsorge Z.8</span></label>
                 <input type="number" id="ruerup_beitraege" value="0" step="1">
             </div>
         </div>
@@ -405,38 +405,38 @@
             <div class="field-group">
                 <label for="kirchensteuer_paid">Gezahlte Kirchensteuer <span class="elster-badge">ESt 1 A Z.4</span></label>
                 <input type="number" id="kirchensteuer_paid" value="0" step="1">
-                <span class="hint">Voll abzugsfaehig (unbegrenzt)</span>
+                <span class="hint">Voll abzugsfähig (unbegrenzt)</span>
             </div>
             <div class="field-group">
                 <label for="spenden">Spenden <span class="elster-badge">ESt 1 A Z.5</span></label>
                 <input type="number" id="spenden" value="0" step="1">
-                <span class="hint">Max 20% des Gesamtbetrags der Einkuenfte</span>
+                <span class="hint">Max 20% des Gesamtbetrags der Einkünfte</span>
             </div>
         </div>
 
-        <h3 style="font-size:0.9rem; margin:20px 0 12px;">Steuermaessigungen (§35a EStG) — Direktabzug von der Steuer</h3>
+        <h3 style="font-size:0.9rem; margin:20px 0 12px;">Steuermäßigungen (§35a EStG) — Direktabzug von der Steuer</h3>
         <div class="field-row">
             <div class="field-group">
                 <label for="handwerkerleistungen">Handwerkerleistungen (Lohnanteil) <span class="elster-badge">ESt 1 A Z.6</span></label>
                 <input type="number" id="handwerkerleistungen" value="0" step="1">
-                <span class="hint">20% Steuermaessigung, max EUR 1.200 (auf max EUR 6.000)</span>
+                <span class="hint">20% Steuermäßigung, max EUR 1.200 (auf max EUR 6.000)</span>
             </div>
             <div class="field-group">
                 <label for="haushaltsnahe_dl">Haushaltsnahe Dienstleistungen</label>
                 <input type="number" id="haushaltsnahe_dl" value="0" step="1">
-                <span class="hint">20% Steuermaessigung, max EUR 4.000 (auf max EUR 20.000)</span>
+                <span class="hint">20% Steuermäßigung, max EUR 4.000 (auf max EUR 20.000)</span>
             </div>
         </div>
 
-        <h3 style="font-size:0.9rem; margin:20px 0 12px;">Aussergewoehnliche Belastungen (§33 EStG)</h3>
+        <h3 style="font-size:0.9rem; margin:20px 0 12px;">Außergewöhnliche Belastungen (§33 EStG)</h3>
         <div class="field-group">
-            <label for="agb">Gesamtbetrag aussergewoehnliche Belastungen</label>
+            <label for="agb">Gesamtbetrag außergewöhnliche Belastungen</label>
             <input type="number" id="agb" value="0" step="1">
-            <span class="hint">Krankheitskosten, Pflegekosten etc. Abzueglich zumutbarer Belastung (einkommensabhaengig)</span>
+            <span class="hint">Krankheitskosten, Pflegekosten etc. Abzüglich zumutbarer Belastung (einkommensabhängig)</span>
         </div>
 
         <div class="btn-row">
-            <button class="btn btn-secondary" data-action="prev">Zurueck</button>
+            <button class="btn btn-secondary" data-action="prev">Zurück</button>
             <button class="btn btn-primary" data-action="calculate">Steuer berechnen</button>
         </div>
     </div>
@@ -451,11 +451,11 @@
 </div>
 
 <footer style="margin-top:40px; padding:20px 0; border-top:1px solid var(--border); text-align:center; font-size:0.75rem; color:var(--text-muted); line-height:1.6;">
-    <strong>Haftungsausschluss:</strong> Dieses Tool dient ausschliesslich zu Informations- und Orientierungszwecken.
+    <strong>Haftungsausschluss:</strong> Dieses Tool dient ausschließlich zu Informations- und Orientierungszwecken.
     Es stellt keine steuerliche, rechtliche oder finanzielle Beratung dar und ersetzt nicht die Konsultation
-    eines Steuerberaters oder einer sonstigen fachkundigen Person. Fuer die Richtigkeit, Vollstaendigkeit und
-    Aktualitaet der bereitgestellten Informationen und Berechnungen wird keine Haftung oder Gewaehr uebernommen.
-    Die Nutzung erfolgt auf eigenes Risiko. Es koennen keinerlei Rechtsansprueche aus den Ergebnissen dieses
+    eines Steuerberaters oder einer sonstigen fachkundigen Person. Für die Richtigkeit, Vollständigkeit und
+    Aktualität der bereitgestellten Informationen und Berechnungen wird keine Haftung oder Gewähr übernommen.
+    Die Nutzung erfolgt auf eigenes Risiko. Es können keinerlei Rechtsansprueche aus den Ergebnissen dieses
     Tools abgeleitet werden.
 </footer>
 
